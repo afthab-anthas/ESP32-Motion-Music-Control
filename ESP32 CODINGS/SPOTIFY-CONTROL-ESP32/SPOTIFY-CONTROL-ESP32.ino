@@ -3,12 +3,12 @@
 #include <HTTPClient.h>
 
 // WiFi Credentials
-const char* ssid = "Anthas Home";
-const char* password = "althaf1109";
+const char* ssid = "Redmi Sinan";
+const char* password = "hifive123";
 
 // Spotify API Credentials
-String accessToken = "BQD1pJzsFVhVZ_9G5JV5Tp8CTJsExY0f6SVI67xWj5wwwZzwPuWCIZd65HtdzrmU_nw-iO_rCTkQO_nMTochZw3Rq4j_udgID_nD3-yxIUs75iBokUzSnUfWF8hdgALoJcBr9LcNOFAYkXgRAwtMRSfAYn9w9598NAgtn3k78gGa7Loz9KwDMSkLJLsE4ScsphUqYPDYDFsVVFbiIhVumBz92BxvHro5Mhlf6AsIc1M_I2KC2_M";
-String refreshToken = "AQAT8Lh1uowI4ivbIxbqY3ccM2qwFXNjA8c7SSjn21xqLJ3-YpWkez4eDwpov_tg5qgJlxrmsJtT2apSFMQg3uq-FsjX_yFsZbXlxRD8nGCNq6GjXYsdYPMz-A7KchUXE9Q";
+String accessToken = "BQC4Na5fnfVEPmhLkLY8n-mN30zwwhO7QXH1ValpTMke6EE6jiInyH7dAAe2UDy-YnzzA1WhACvtA9OOMD1892ZMzuE23GcBaPQV39cuJm0JLPsHCsC5UJ0X-qsB4GYP-xyul0e-UaHb7_oDnCo1qn4bZByE7zWCSnauvfAEA3kJW5zwvMr1IgW8uGHViReKZMXHpbUakHdNGh3-0lDBp7jJnjFpcHDSiMGVX2QJJC8IhBdYtMQwr3hK-2PJ-7ud9yqxnvJRRMm7Vz3QKePwqx0tRBj98zOcNmGLT3mxCszcrTUDiOMdKwjLEYTDbA";
+String refreshToken = "AQCUt-xFWMJ08vLM44mfH29PaJLV-681_DusySeJLMqxNKqQ_XRg1X25jVGmkHgYee6x0FBzJLG8Jk5zB2DkkRGk0FvCssXxw0MmuXrAr8oQPLQUNDF3q7-lJpSCib46qLM";
 const char* clientID = "03b3f909f3e24c019738b0459fb28ac4";
 const char* clientSecret = "bee960a16fb44b3b9f76afd54bed6cc7";
 

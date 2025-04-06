@@ -3,10 +3,6 @@
 #include <HTTPClient.h>
 #include <ArduinoJson.h>  // JSON parsing library
 
-// WiFi Credentials
-const char* ssid = "Redmi Sinan";
-const char* password = "hifive123";
-
 // Spotify API Credentials
 String accessToken = "";
 String refreshToken = "AQCUt-xFWMJ08vLM44mfH29PaJLV-681_DusySeJLMqxNKqQ_XRg1X25jVGmkHgYee6x0FBzJLG8Jk5zB2DkkRGk0FvCssXxw0MmuXrAr8oQPLQUNDF3q7-lJpSCib46qLM";
@@ -21,10 +17,23 @@ const char* deviceURL = "https://api.spotify.com/v1/me/player/devices";
 
 WiFiClientSecure client;
 
+char ssid[32];        // Array to store SSID
+char password[64];    // Array to store WiFi password
+
 void setup() {
     Serial.begin(115200);
+    
+    // Prompt user for Wi-Fi credentials
+    Serial.println("Enter Wi-Fi SSID: ");
+    while (Serial.available() == 0) {}  // Wait for input
+    Serial.readBytesUntil('\n', ssid, sizeof(ssid));  // Read SSID
+    Serial.println("Enter Wi-Fi Password: ");
+    while (Serial.available() == 0) {}  // Wait for input
+    Serial.readBytesUntil('\n', password, sizeof(password));  // Read password
+
+    Serial.print("Connecting to WiFi");
     WiFi.begin(ssid, password);
-    Serial.print("Connecting to WiFi...");
+    
     while (WiFi.status() != WL_CONNECTED) {
         delay(1000);
         Serial.print(".");

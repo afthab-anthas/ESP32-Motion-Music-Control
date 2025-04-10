@@ -1,3 +1,6 @@
+#define SIGNAL_PIN 5 // GPIO5 from STM32
+#define LED_PIN 4 
+
 #include <WiFi.h>
 #include <WiFiClientSecure.h>
 #include <HTTPClient.h>
@@ -22,7 +25,8 @@ char password[64];    // Array to store WiFi password
 
 void setup() {
     Serial.begin(115200);
-    
+    pinMode(SIGNAL_PIN, INPUT);
+    pinMode(LED_PIN, OUTPUT);
     // Prompt user for Wi-Fi credentials
     Serial.println("Enter Wi-Fi SSID: ");
     while (Serial.available() == 0) {}  // Wait for input
@@ -107,17 +111,20 @@ String getActiveDeviceID() {
 }
 
 void loop() {
+    int signal = digitalRead(SIGNAL_PIN);
     Serial.println("Checking for active device...");
     String deviceID = getActiveDeviceID();
 
     if (deviceID != "") {
-        Serial.println("Playing Spotify...");
-        sendSpotifyCommand(playURL);
-        delay(5000);
-        
-        Serial.println("Pausing Spotify...");
-        sendSpotifyCommand(pauseURL);
-        delay(5000);
+        if(signal == HIGH){
+          Serial.println("Playing Spotify...");
+          sendSpotifyCommand(playURL);
+          digitalWrite(LED_PIN, HIGH);
+        } else{
+          Serial.println("Pausing Spotify...");
+          sendSpotifyCommand(pauseURL);
+          digitalWrite(LED_PIN, LOW);
+        }
     } else {
         Serial.println("No active Spotify device found. Retrying in 5 seconds...");
         delay(5000);

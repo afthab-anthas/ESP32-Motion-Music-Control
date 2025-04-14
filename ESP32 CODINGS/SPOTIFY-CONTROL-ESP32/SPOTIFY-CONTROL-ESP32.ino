@@ -24,16 +24,15 @@ char ssid[32];        // Array to store SSID
 char password[64];    // Array to store WiFi password
 
 void setup() {
-    Serial.begin(115200);
+    Serial.begin(9600);
     pinMode(SIGNAL_PIN, INPUT);
     pinMode(LED_PIN, OUTPUT);
-    // Prompt user for Wi-Fi credentials
-    Serial.println("Enter Wi-Fi SSID: ");
-    while (Serial.available() == 0) {}  // Wait for input
-    Serial.readBytesUntil('\n', ssid, sizeof(ssid));  // Read SSID
-    Serial.println("Enter Wi-Fi Password: ");
-    while (Serial.available() == 0) {}  // Wait for input
-    Serial.readBytesUntil('\n', password, sizeof(password));  // Read password
+
+    // Use predefined credentials
+    strcpy(ssid, "Redmi Sinan");
+    strcpy(password, "hifive123");
+    Serial.println("Using hardcoded Wi-Fi credentials.");
+
 
     Serial.print("Connecting to WiFi");
     WiFi.begin(ssid, password);

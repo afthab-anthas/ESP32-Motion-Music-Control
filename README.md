@@ -13,7 +13,7 @@ The STM32 uses an ultrasonic sensor to detect motion. When motion is detected wi
 ## 📦 Technologies Used
 
 ### STM32 Side:
-- STM32 (e.g., STM32F103 or Nucleo)
+- STM32 (e.g., STM32 nucleo F429ZI)
 - Ultrasonic Sensor (HC-SR04)
 - GPIO for signal output
 - LED indicator
